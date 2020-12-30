@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:testtodelete/widgets/showchipandspacer.dart';
 import 'package:testtodelete/widgets/showdatepicker.dart';
+import 'package:testtodelete/widgets/showpopupmenubutton.dart';
 import 'package:testtodelete/widgets/showtextfield.dart';
 
 class TestScreen1 extends StatelessWidget {
@@ -14,20 +16,20 @@ class TestScreen1 extends StatelessWidget {
       children: <Widget>[
         CustomGridTile(
             "Date",
-            Icon(
-              Icons.settings,
-              size: 80,
-              color: Colors.red,
-            ),
+            Icon(Icons.settings, size: 80, color: Colors.red),
             ShowDatePickerControl()),
         CustomGridTile(
             "Text Field",
-            Icon(
-              Icons.settings,
-              size: 80,
-              color: Colors.green,
-            ),
+            Icon(Icons.settings, size: 80, color: Colors.green),
             ShowTextField()),
+        CustomGridTile(
+            "Popupmenu",
+            Icon(Icons.settings, size: 80, color: Colors.orange),
+            ShowPopupMenuButton()),
+        CustomGridTile(
+            "Chip & Spacer",
+            Icon(Icons.settings, size: 80, color: Colors.orange),
+            ShowChipAndSpacer()),
       ],
     );
   }
