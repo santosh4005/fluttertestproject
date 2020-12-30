@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testtodelete/widgets/showchipandspacer.dart';
 import 'package:testtodelete/widgets/showdatepicker.dart';
+import 'package:testtodelete/widgets/showdismissable.dart';
+import 'package:testtodelete/widgets/showform.dart';
 import 'package:testtodelete/widgets/showpopupmenubutton.dart';
 import 'package:testtodelete/widgets/showtextfield.dart';
 
@@ -30,6 +32,14 @@ class TestScreen1 extends StatelessWidget {
             "Chip & Spacer",
             Icon(Icons.settings, size: 80, color: Colors.orange),
             ShowChipAndSpacer()),
+        CustomGridTile(
+            "Dismissable",
+            Icon(Icons.settings, size: 80, color: Colors.purple),
+            ShowDismissable()),
+        CustomGridTile(
+            "Form",
+            Icon(Icons.settings, size: 80, color: Colors.cyan),
+            ShowFormWidget()),
       ],
     );
   }
