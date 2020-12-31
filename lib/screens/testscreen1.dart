@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:testtodelete/widgets/showSearchAbility.dart';
 import 'package:testtodelete/widgets/showchipandspacer.dart';
 import 'package:testtodelete/widgets/showdatepicker.dart';
 import 'package:testtodelete/widgets/showdismissable.dart';
 import 'package:testtodelete/widgets/showform.dart';
 import 'package:testtodelete/widgets/showpopupmenubutton.dart';
+import 'package:testtodelete/widgets/showslider.dart';
 import 'package:testtodelete/widgets/showtextfield.dart';
 
 class TestScreen1 extends StatelessWidget {
@@ -40,6 +42,12 @@ class TestScreen1 extends StatelessWidget {
             "Form",
             Icon(Icons.settings, size: 80, color: Colors.cyan),
             ShowFormWidget()),
+        CustomGridTile("Slider",
+            Icon(Icons.settings, size: 80, color: Colors.grey), ShowSlider()),
+        CustomGridTile(
+            "Search",
+            Icon(Icons.settings, size: 80, color: Colors.teal),
+            ShowSearchAbility()),
       ],
     );
   }

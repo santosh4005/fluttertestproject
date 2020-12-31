@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testtodelete/helpers/constants.dart';
 
 class ShowFormWidget extends StatefulWidget {
   @override
@@ -12,6 +13,13 @@ class _ShowFormWidgetState extends State<ShowFormWidget> {
   TextEditingController _lastnamecontroller;
 
   FocusNode _lastnamefocusnode = FocusNode();
+
+  @override
+  void dispose() {
+    _lastnamecontroller.dispose();
+    _lastnamefocusnode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +45,17 @@ class _ShowFormWidgetState extends State<ShowFormWidget> {
                 onFieldSubmitted: (value) {
                   FocusScope.of(context).requestFocus(_lastnamefocusnode);
                 },
-                decoration: InputDecoration(
+                decoration: textInputDecoration.copyWith(
                   labelText: "First Name",
                 ),
               ),
+              SizedBox(
+                height: 5,
+              ),
               TextFormField(
                 focusNode: _lastnamefocusnode,
-                decoration: InputDecoration(labelText: "Last Name"),
+                decoration:
+                    textInputDecoration.copyWith(labelText: "Last Name"),
                 textInputAction: TextInputAction.done,
                 onFieldSubmitted: (value) {
                   showDialog(
