@@ -5,6 +5,8 @@ import 'package:testtodelete/widgets/showdatepicker.dart';
 import 'package:testtodelete/widgets/showdismissable.dart';
 import 'package:testtodelete/widgets/showform.dart';
 import 'package:testtodelete/widgets/showpopupmenubutton.dart';
+import 'package:testtodelete/widgets/showprovider.dart';
+import 'package:testtodelete/widgets/showproviderconsumer.dart';
 import 'package:testtodelete/widgets/showslider.dart';
 import 'package:testtodelete/widgets/showtextfield.dart';
 
@@ -48,6 +50,12 @@ class TestScreen1 extends StatelessWidget {
             "Search",
             Icon(Icons.settings, size: 80, color: Colors.teal),
             ShowSearchAbility()),
+        CustomGridTile("Provider",
+            Icon(Icons.settings, size: 80, color: Colors.blue), ShowProvider()),
+        CustomGridTile(
+            "Consumer",
+            Icon(Icons.settings, size: 80, color: Colors.pink),
+            ShowProviderConsumer()),
       ],
     );
   }
