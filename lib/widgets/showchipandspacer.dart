@@ -20,7 +20,7 @@ class _ShowChipAndSpacerState extends State<ShowChipAndSpacer> {
       appBar: AppBar(
         title: Text("${getEnumValueAsString(_titlename.toString())} demo"),
         actions: [
-          PopupMenuButton(
+          PopupMenuButton<ChipAndSpacerEnum>(
               onSelected: (value) {
                 setState(() {
                   _titlename = value;

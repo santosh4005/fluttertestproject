@@ -7,7 +7,7 @@ class ShowSearchAbility extends StatefulWidget {
 }
 
 class _ShowSearchAbilityState extends State<ShowSearchAbility> {
-  List<SearchItem> _searchItems;
+  late List<SearchItem> _searchItems;
 
   @override
   void initState() {
@@ -37,10 +37,10 @@ class _ShowSearchAbilityState extends State<ShowSearchAbility> {
   }
 }
 
-class PeopleSearch extends SearchDelegate<SearchItem> {
+class PeopleSearch extends SearchDelegate<SearchItem?> {
   List<SearchItem> sItems;
 
-  PeopleSearch({this.sItems});
+  PeopleSearch({required this.sItems});
 
   @override
   List<Widget> buildActions(BuildContext context) {
@@ -74,7 +74,7 @@ class PeopleSearch extends SearchDelegate<SearchItem> {
   @override
   Widget buildSuggestions(BuildContext context) {
     final suggestionlist = query.isEmpty
-        ? sItems.take(1).toList()
+        ? sItems.take(10).toList()
         : sItems
             .where((element) =>
                 element.name.toLowerCase().contains(query.toLowerCase()))
@@ -84,6 +84,11 @@ class PeopleSearch extends SearchDelegate<SearchItem> {
       itemCount: suggestionlist.length,
       itemBuilder: (context, index) {
         return ListTile(
+          onTap: () {
+            ScaffoldMessenger.of(context).hideCurrentSnackBar();
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text("${suggestionlist[index].name} selected")));
+          },
           title: Text(suggestionlist[index].name),
           subtitle: Text(suggestionlist[index].location),
         );

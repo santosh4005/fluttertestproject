@@ -2,5 +2,5 @@ class SearchItem {
   final String name;
   final String location;
 
-  SearchItem({this.name, this.location});
+  SearchItem({required this.name, required this.location});
 }

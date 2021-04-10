@@ -32,14 +32,23 @@ class _ShowDismissableState extends State<ShowDismissable> {
                           title: Text("Whoa!"),
                           content: Text("Are you sure?"),
                           actions: [
-                            RaisedButton(
+                            ElevatedButton(
                                 child: Text("Yes"),
                                 onPressed: () {
                                   Navigator.of(context).pop(true);
                                 }),
-                            RaisedButton(
+                            ElevatedButton(
                                 child: Text("No"),
                                 onPressed: () {
+                                  ScaffoldMessenger.of(context)
+                                      .hideCurrentSnackBar();
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(SnackBar(
+                                          content: Text(
+                                    "PUSSY",
+                                    textAlign: TextAlign.center,
+                                  )));
+
                                   Navigator.of(context).pop(false);
                                 })
                           ],
@@ -51,8 +60,22 @@ class _ShowDismissableState extends State<ShowDismissable> {
                   }
                 },
                 key: ValueKey(_listitems[index]),
+                background: Container(
+                  decoration: BoxDecoration(color: Colors.redAccent),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: Icon(
+                      Icons.delete_sweep_rounded,
+                      color: Colors.white,
+                    ),
+                  ),
+                  alignment: Alignment.centerRight,
+                ),
                 child: Card(
-                  child: StupidListTile(title: _listitems[index]),
+                  child: StupidListTile(
+                    title: _listitems[index],
+                    subtitle: _listitems[index],
+                  ),
                   elevation: 5,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(5),
@@ -65,18 +88,18 @@ class _ShowDismissableState extends State<ShowDismissable> {
 
 class StupidListTile extends StatelessWidget {
   final String title;
+  final String subtitle;
 
-  StupidListTile({this.title});
+  StupidListTile({required this.title, required this.subtitle});
   @override
   Widget build(BuildContext context) {
     return ListTile(
       key: UniqueKey(),
       title: Text(title),
-      subtitle: Text("Subtitle: $title"),
+      subtitle: Text("Subtitle: $subtitle"),
       trailing: IconButton(
         icon: Icon(Icons.info),
         onPressed: () {
-          print('dick bag');
           ScaffoldMessenger.of(context).hideCurrentSnackBar();
           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
             content: (Text('Dick bag!')),

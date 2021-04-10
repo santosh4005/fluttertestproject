@@ -14,7 +14,7 @@ class _ShowPopupMenuButtonState extends State<ShowPopupMenuButton> {
       appBar: AppBar(
         title: Text("Popup Menu Button"),
         actions: [
-          PopupMenuButton(
+          PopupMenuButton<Dingisdongis>(
               icon: Icon(Icons.more_vert),
               onSelected: (value) {
                 setState(() {

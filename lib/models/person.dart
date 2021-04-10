@@ -1,8 +1,17 @@
 class Person {
+  final String id;
   final String firstname;
   final String lastname;
   final String strength;
-  final double cuteness;
+  final int cuteness;
+  final String createdby;
 
-  Person(this.firstname, this.lastname, this.strength, this.cuteness);
+  Person({
+    required this.firstname,
+    required this.lastname,
+    required this.strength,
+    required this.cuteness,
+    required this.createdby,
+    required this.id,
+  });
 }
